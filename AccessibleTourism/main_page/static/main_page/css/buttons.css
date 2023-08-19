@@ -6,11 +6,11 @@
     font-size: 1rem;
     border-radius: var(--border-radius);
     white-space: nowrap;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding: 0.1rem;
     transition: 0.5s;
     outline: none;
     box-shadow: none;
+    margin: 0.5rem;
 }
 .btn:focus, .btn:hover {
   border: 3px solid var(--btn-focus-border-color);

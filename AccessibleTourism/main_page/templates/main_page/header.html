@@ -29,10 +29,8 @@
   </div>
   <div class="navigation-bar-links">
     <ul>
-        <li><a class="options">Loop</a></li>
-        <li><a class="options">Colors</a></li>
+        <li><a class="options" onclick="toggleSize()"><img src="{% static 'main_page/img/eye.png' %}"></a></li>
       {% if user.is_authenticated %}
-        <li><a class="options" href="{% url 'signout' %}">Settings</a></li>
         <li><a class="options" href="{% url 'signout' %}">Sign out</a></li>
       {% else %}
         <li><a class="options" href="{% url 'signin' %}">Sign in</a></li>

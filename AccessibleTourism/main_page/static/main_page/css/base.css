@@ -23,7 +23,7 @@
     --chili-red-antagonist:#971908ff;
     --avocado: #568917ff;
 
-    --elements-background-color: var(--pale-black);
+    --elements-background-color: var(--platinum);
 
     --background-background-color: var(--black);
     --background-text-color: color-mix(in srgb, var(--platinum) 20%, transparent);
@@ -31,9 +31,9 @@
 
     --font: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     --font: "Actor";
-    --text-color: var(--platinum);
+    --text-color: var(--russian-violet);
 
-    --border-color: var(--slate-gray);
+    --border-color: var(--russian-violet);
     --border-size: 3px;
     --border-radius: 10px;
 
@@ -63,6 +63,10 @@
     --info-color: var(--vista-blue);
     --info-text-color: var(--pale-blue);
 
+    --fs: 1rem;
+}
+* {
+    font-size: var(--fs);
 }
 html {
     color: var(--text-color);

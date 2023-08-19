@@ -1,16 +1,7 @@
-# This is a sample Python script.
+import pyttsx3
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[2].id)
+engine.say("The Adelaide Botanic Garden is a breathtaking public garden located in the heart of Adelaide, South Australia. Spanning over 51 hectares, it is situated on the north-east corner of the Adelaide Park Lands, just a stone's throw away from the city center. The garden is a peaceful oasis, offering visitors a serene escape from the bustling city.")
+engine.runAndWait()
