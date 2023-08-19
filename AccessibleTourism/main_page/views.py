@@ -3,6 +3,7 @@ import os
 import openai
 from django.shortcuts import render
 from django.core.handlers.wsgi import WSGIRequest
+from .models import Place
 
 from dotenv import load_dotenv
 import pyttsx3
@@ -14,7 +15,9 @@ def index(request: WSGIRequest):
 
 
 def suggestions(request: WSGIRequest):
-    return render(request, 'main_page/suggestions.html')
+    query = Place.objects.all()
+    context = {"places": query}
+    return render(request, 'main_page/suggestions.html', context=context)
 
 
 def favorites(request: WSGIRequest):

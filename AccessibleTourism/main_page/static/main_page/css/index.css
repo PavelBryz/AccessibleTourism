@@ -15,3 +15,10 @@
 .active{
     display: block;
 }
+p{
+    text-justify: inter-word;
+    text-align: justify;
+}
+h2, h3, p {
+    margin-top: .5rem;
+}

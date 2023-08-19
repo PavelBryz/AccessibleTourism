@@ -1,0 +1,6 @@
+.icons-holder > img{
+    max-height: 2rem;
+}
+.icons-holder{
+    display: flex;
+}

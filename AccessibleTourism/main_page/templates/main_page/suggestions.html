@@ -6,6 +6,7 @@
 {% block css %}
   {{ block.super }}
   <link rel="stylesheet" href="{% static 'main_page/css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'main_page/css/suggestions.css' %}">
 {% endblock %}
 
 {% block scripts %}
@@ -17,35 +18,45 @@
 <main>
     <table>
         <tr>
-            <th>Place</th>
             <th>Picture</th>
+            <th>Place</th>
             <th>Accessibility</th>
+            <th>Icons</th>
         </tr>
-        <tr>
-            <td><a href="{% url 'item' 1 %}"></a>Place 1</td>
-            <td><div class="placeholder">Placeholder Image</div></td>
-            <td><div class="placeholder">Placeholder for accessibility actions</div></td>
-        </tr>
-        <tr>
-            <td>Place 2</td>
-            <td><div class="placeholder">Placeholder Image</div></td>
-            <td><div class="placeholder">Placeholder for accessibility actions</div></td>
-        </tr>
-        <tr>
-            <td>Place 3</td>
-            <td><div class="placeholder">Placeholder Image</div></td>
-            <td><div class="placeholder">Placeholder for accessibility actions</div></td>
-        </tr>
-        <tr>
-            <td>Place 4</td>
-            <td><div class="placeholder">Placeholder Image</div></td>
-            <td><div class="placeholder">Placeholder for accessibility actions</div></td>
-        </tr>
-        <tr>
-            <td>Place 5</td>
-            <td><div class="placeholder">Placeholder Image</div></td>
-            <td><div class="placeholder">Placeholder for accessibility actions</div></td>
-        </tr>
+        {% for place in places %}
+            <tr>
+                <td><a href="{% url 'item' 1 %}"></a>pic</td>
+                <td><div class="placeholder">{{ place.name }}</div></td>
+                <td><div class="placeholder">{{ place.description }}</div></td>
+                <td class="icons-holder">
+                    {% if place.public_toilet %}
+                        <img src="{% static 'main_page/img/toilet.png' %}">
+                    {% else %}
+                        <img src="{% static 'main_page/img/no-toilet.png' %}">
+                    {% endif %}
+                    {% if place.accessible_by_walking_stick %}
+                        <img src="{% static 'main_page/img/stick.svg' %}">
+                    {% else %}
+                        <img src="{% static 'main_page/img/no-stick.jpg' %}">
+                    {% endif %}
+                    {% if place.accessible_by_wheel_chair %}
+                        <img src="{% static 'main_page/img/wheelchair.png' %}">
+                    {% else %}
+                        <img src="{% static 'main_page/img/no-wheelchair.png' %}">
+                    {% endif %}
+                    {% if place.priority_parking %}
+                        <img src="{% static 'main_page/img/parking.png' %}">
+                    {% else %}
+                        <img src="{% static 'main_page/img/no-parking.png' %}">
+                    {% endif %}
+                    {% if place.visual_impdairment_facilities %}
+                        <img src="{% static 'main_page/img/blind.png' %}">
+                    {% else %}
+                        <img src="{% static 'main_page/img/no-blind.png' %}">
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
     </table>
 </main>
 {% endblock %}
