@@ -1,0 +1,90 @@
+nav.navigation-bar {
+  color: #fff;
+  background-color: var(--elements-background-color);
+  padding: 0.5rem;
+  border-radius: 0px 0px var(--border-radius) var(--border-radius);
+  margin: 0 1rem 1rem 1rem;
+  border-bottom: var(--border-size)solid var(--border-color);
+  border-left: var(--border-size) solid var(--border-color);
+  border-right: var(--border-size) solid var(--border-color);
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.25em;
+  justify-content: space-between;
+}
+.navigation-bar-links ul{
+  display: flex;
+}
+.navigation-bar-links li{
+  list-style: none;
+}
+.navigation-bar-links li + li:before {
+    content: "|";
+    background-color: var(--border-color);
+    color: var(--border-color);
+}
+.navigation-bar-links li a {
+  padding: 0.25rem;
+  text-decoration: None;
+  color: var(--text-color);
+}
+.flex-center{
+    flex-grow: 1;
+}
+.hamburger-menu-btn{
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1.5em;
+    height: 1em;
+    display: none;
+}
+.hamburger-menu-btn .bar{
+    width: 100%;
+    height: 3px;
+    border-radius: 1px;
+    background-color: var(--text-color);
+}
+@media (max-width: 530px){
+    .hamburger-menu-btn{
+        display: flex;
+        position: absolute;
+        right: 1em;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    nav.navigation-bar {
+        align-items: start;
+        height: fit-content;
+        position: relative;
+    }
+    nav.navigation-bar, .navigation-bar-links ul{
+        flex-direction: column;
+    }
+    .navigation-bar-links li + li::before{
+        content: "";
+    }
+    nav.navigation-bar::after {
+        align-items: start;
+    }
+    nav.navigation-bar > div.active:not(:last-of-type){
+        border-bottom: 2px solid gray;
+        width: 100%;
+    }
+    .navigation-bar-links ul{
+        display: none;
+    }
+    .navigation-bar-links.active ul{
+        display: flex;
+        margin-block: 0.25rem;
+    }
+}
+
+nav > a.active{
+    top: 16%;
+    display: flex;
+}
+
+.logo img{
+    width: 2.25rem;
+}

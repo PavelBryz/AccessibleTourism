@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    /* CSS HEX */
+    --black: #050609ff;
+    --platinum: #dee5e5ff;
+    --slate-gray: #9b9ca1ff;
+    --chili-red: #ea2b1fff;
+    --xanthous: #edb230ff;
+    --pale-black: #202022;
+    --mindaro: #caff8aff;
+    --vista-blue: #779be7ff;
+    --pale-blue: #c7dcf1ff;
+
+    --white: #ffffffff;
+    --cool-gray: #938ba1ff;
+    --russian-violet: #0d0630ff;
+    --penn-red: #971908ff;
+    --chocolate: #d07500ff;
+    --chili-red-antagonist:#971908ff;
+    --avocado: #568917ff;
+
+    --elements-background-color: var(--pale-black);
+
+    --background-background-color: var(--black);
+    --background-text-color: color-mix(in srgb, var(--platinum) 20%, transparent);
+    --background-shadow: 0 0 30px color-mix(in srgb, var(--platinum) 50%, transparent);
+
+    --font: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font: "Actor";
+    --text-color: var(--platinum);
+
+    --border-color: var(--slate-gray);
+    --border-size: 3px;
+    --border-radius: 10px;
+
+    --strikethrough-color: var(--chili-red);
+    --wrong-border-color: var(--chili-red);
+    --strikethrough-color-antagonist: var(--penn-red);
+    --strikethrough-background-color: color-mix(in srgb, var(--chili-red) 40%, transparent);
+    --strikethrough-background-shadow-color: color-mix(in srgb, var(--chili-red) 50%, transparent);
+
+    --added-color: var(--xanthous);
+    --added-color-antagonist: var(--chocolate);
+    --added-background-color: color-mix(in srgb, var(--xanthous) 20%, transparent);
+    --added-background-shadow-color: color-mix(in srgb, var(--xanthous) 50%, transparent);
+
+    --correct-color: var(--platinum);
+    --correct-border-color: var(--mindaro);
+    --correct-color-antagonist: var(--russian-violet);
+    --correct-background-color: color-mix(in srgb, var(--xanthous) 20%, transparent);
+    --correct-background-shadow-color: color-mix(in srgb, var(--xanthous) 50%, transparent);
+
+    --alert-info-border-color: var(--vista-blue);
+    --alert-success-border-color: var(--mindaro);
+
+    --btn-focus-border-color: var(--vista-blue);
+
+    --popup-info-color: var(--vista-blue);
+    --info-color: var(--vista-blue);
+    --info-text-color: var(--pale-blue);
+
+}
+html {
+    color: var(--text-color);
+    background-color: var(--background-background-color);
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font);
+    height: 100%;
+}
+main {
+    margin: 0 1rem 1rem 1rem;
+    border: var(--border-size) solid var(--border-color);
+    padding: 0.5rem;
+    background-color: var(--elements-background-color);
+    border-radius: var(--border-radius);
+    overflow: scroll;
+    max-height: 100%;
+    color: var(--text-color);
+    line-height: 1;
+
+}
+input:focus{
+    outline: none !important;
+}
+.hidden{
+    display: none !important;
+}
+.bold {
+    font-weight: bold !important;
+}
+.centred{
+    text-align: center !important;
+}
+.centered-item{
+    position: relative !important;
+    transform: translateX(-50%) !important;
+    left: 50% !important;
+}

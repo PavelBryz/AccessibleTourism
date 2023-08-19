@@ -1,0 +1,17 @@
+.regular-text {
+  margin-block: 0.5rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.popup {
+  color: var(--popup-info-color);
+}
+.popup-text{
+    margin-block: 0.25rem;
+    border-block: 3px solid var(--border-color);
+    padding-block: 0.25rem;
+}
+
+.active{
+    display: block;
+}

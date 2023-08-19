@@ -1,0 +1,14 @@
+{% extends 'main_page/header.html' %}
+{% load static %}
+{% block title %} Sign out {% endblock %}
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'users_management/css/log.css' %}">
+{% endblock %}
+{% block context %}
+
+<main>
+    <h1>You successfully sign out</h1>
+</main>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+.btn{
+    height: 2rem;
+    border: 3px solid var(--border-color);
+    background-color: var(--elements-background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    white-space: nowrap;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    transition: 0.5s;
+    outline: none;
+    box-shadow: none;
+}
+.btn:focus, .btn:hover {
+  border: 3px solid var(--btn-focus-border-color);
+}

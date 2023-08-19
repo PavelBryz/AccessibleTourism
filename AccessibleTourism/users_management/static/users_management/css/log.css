@@ -1,0 +1,50 @@
+.title{
+    margin-block: 3px;
+}
+.sign-in-form, .sign-up-form{
+    display: grid;
+    gap: 10px;
+}
+
+.sign-in-form > input{
+    text-align: center;
+}
+.sign-up-form > span{
+    opacity: 0.5;
+}
+.signin-main{
+
+}
+
+.btn-holder{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+}
+.google-sign-in {
+  display: flex;
+  justify-content: center;
+}
+.google-sign-in > a{
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    padding: 0.25rem;
+    text-decoration: None;
+    color: var(--text-color);
+}
+.google-sign-in img{
+    height: 2.5rem;
+}
+.or-separator-holder {
+  display: flex;
+  justify-content: center;
+  margin-block: 0.5rem;
+}
+.or-separator-holder > hr{
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 0.5rem;
+    padding-left: 25%;
+    margin-inline: 0.5rem;
+}

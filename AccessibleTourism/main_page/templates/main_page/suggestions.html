@@ -1,0 +1,51 @@
+{% extends 'main_page/header.html' %}
+{% load static %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'main_page/css/index.css' %}">
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'main_page/js/index.js' %}"></script>
+{% endblock %}
+
+{% block context %}
+<main>
+    <table>
+        <tr>
+            <th>Place</th>
+            <th>Picture</th>
+            <th>Accessibility</th>
+        </tr>
+        <tr>
+            <td><a href="{% url 'item' 1 %}"></a>Place 1</td>
+            <td><div class="placeholder">Placeholder Image</div></td>
+            <td><div class="placeholder">Placeholder for accessibility actions</div></td>
+        </tr>
+        <tr>
+            <td>Place 2</td>
+            <td><div class="placeholder">Placeholder Image</div></td>
+            <td><div class="placeholder">Placeholder for accessibility actions</div></td>
+        </tr>
+        <tr>
+            <td>Place 3</td>
+            <td><div class="placeholder">Placeholder Image</div></td>
+            <td><div class="placeholder">Placeholder for accessibility actions</div></td>
+        </tr>
+        <tr>
+            <td>Place 4</td>
+            <td><div class="placeholder">Placeholder Image</div></td>
+            <td><div class="placeholder">Placeholder for accessibility actions</div></td>
+        </tr>
+        <tr>
+            <td>Place 5</td>
+            <td><div class="placeholder">Placeholder Image</div></td>
+            <td><div class="placeholder">Placeholder for accessibility actions</div></td>
+        </tr>
+    </table>
+</main>
+{% endblock %}

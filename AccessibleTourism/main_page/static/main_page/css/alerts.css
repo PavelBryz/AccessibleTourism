@@ -1,0 +1,14 @@
+.alert {
+  margin: 0 1rem 1rem 1rem;
+  border: var(--border-size) solid var(--border-color);
+  padding: 0.5rem;
+  background-color: var(--elements-background-color);
+  border-radius: var(--border-radius);
+  max-height: 100%;
+}
+.alert.alert-info {
+  border: var(--border-size) solid var(--alert-info-border-color);
+}
+.alert.alert-success {
+  border: var(--border-size) solid var(--alert-success-border-color);
+}

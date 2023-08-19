@@ -2,14 +2,48 @@
 {% load static %}
 
 {% block css %}
-
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'main_page/css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'main_page/css/letter.css' %}">
 {% endblock %}
 {% block scripts %}
-
+  {{ block.super }}
+  <script src="{% static 'main_page/js/header.js' %}"></script>
 {% endblock %}
 
 {% block header %}
-<header>
-    <a href="#">Login</a>
-</header>
+<nav class="navigation-bar">
+  <div class="logo"><a href="{% url 'main_page' %}"><img src = "{% static 'main_app/img/logo_black.svg' %}" alt="Logo"/></a></div>
+  <div class="navigation-bar-links flex-center">
+    <ul>
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'suggestions' %}">Suggestions</a></li>
+        <li><a href="{% url 'favorites' %}">Favorites</a></li>
+        {% if user.is_superuser %}
+          <li><a class="options" href="/admin/">Admin</a></li>
+        {% endif %}
+      {% else %}
+        <li><a href="{% url 'suggestions' %}">Suggestions</a></li>
+      {% endif %}
+    </ul>
+  </div>
+  <div class="navigation-bar-links">
+    <ul>
+        <li><a class="options">Loop</a></li>
+        <li><a class="options">Colors</a></li>
+      {% if user.is_authenticated %}
+        <li><a class="options" href="{% url 'signout' %}">Settings</a></li>
+        <li><a class="options" href="{% url 'signout' %}">Sign out</a></li>
+      {% else %}
+        <li><a class="options" href="{% url 'signin' %}">Sign in</a></li>
+        <li><a class="options" href="{% url 'signup' %}">Sign up</a></li>
+      {% endif %}
+    </ul>
+  </div>
+  <a class="hamburger-menu-btn" onclick="activateMenuToggle()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </a>
+</nav>
 {% endblock %}

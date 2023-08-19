@@ -1,0 +1,16 @@
+.level1{
+  position: absolute;
+  z-index: 1;
+  right: 0px;
+  left: 0px;
+
+}
+.level2{
+  position: absolute;
+  z-index: 2;
+  right: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

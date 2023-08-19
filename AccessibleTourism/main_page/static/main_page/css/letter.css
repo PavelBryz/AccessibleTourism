@@ -1,0 +1,70 @@
+.checked-answer .letter{
+  margin: 0;
+  position: relative;
+  top: 18%;
+}
+.checked-answer{
+    position: relative;
+    color: var(--correct-color-antagonist);
+}
+.checked-answer .added{
+    color: var(--added-color-antagonist);
+}
+.added{
+  color: var(--added-color);
+}
+.background-line .added{
+    color: var(--added-background-color);
+}
+.strikethrough {
+  position: relative;
+  display: inline-block;
+  font-size: 1em;
+}
+.strikethrough::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  right: 0;
+  height: 2px;
+  background: var(--strikethrough-color);
+  transform-origin: top right;
+}
+
+.checked-answer .strikethrough::after{
+    background: var(--strikethrough-color-antagonist);
+}
+
+.background-line .strikethrough::after{
+  background: var(--strikethrough-background-color);
+}
+
+.strikethrough.lower-case::after {
+  top: 40%;
+  transform: rotate(-45deg) scaleX(1);
+}
+
+.strikethrough.upper-case::after {
+  top: 10%;
+  transform: rotate(-45deg) scaleX(1);
+}
+
+.strikethrough.lover-case.animated::after {
+  animation: strikeThrough 2s forwards;
+}
+
+.strikethrough.upper-case.animated::after {
+  animation: strikeThrough 2s forwards;
+}
+
+@keyframes strikeThrough {
+  0%
+  {
+    transform: rotate(-45deg) scaleX(0);
+  }
+
+  100%
+  {
+    transform: rotate(-45deg) scaleX(1);
+  }
+}

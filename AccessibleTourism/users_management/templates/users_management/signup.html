@@ -1,0 +1,23 @@
+{% extends 'main_page/header.html' %}
+{% load static %}
+{% block title %} Main {% endblock %}
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'users_management/css/log.css' %}">
+{% endblock %}
+{% block context %}
+
+<div style="align-self: center;min-width: 300px;">
+    <main class="signup-main">
+        <h1 class="title">Sign up</h1>
+        <form class="form sign-up-form" method="POST">
+            {% csrf_token %}
+            {{form}}
+            <div class="btn-holder">
+                <button class="btn btn-add" type="submit">Sign up</button>
+            </div>
+        </form>
+    </main>
+</div>
+
+{% endblock %}

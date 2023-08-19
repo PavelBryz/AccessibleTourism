@@ -1,0 +1,43 @@
+
+.background {
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--background-background-color);
+}
+
+.background-line {
+  white-space: nowrap;
+  font-size: 3em;
+  color: var(--background-text-color);
+  text-shadow: var(--background-shadow);
+  animation: alternate linear infinite;
+  animation-direction: forward;
+  animation-duration: calc(10s + var(--d));
+  user-select: none;
+}
+
+.background-line:nth-child(odd) {
+  animation-name: moveFromLeft;
+}
+
+.background-line:nth-child(even) {
+  animation-name: moveFromRight;
+}
+
+@keyframes moveFromLeft {
+  0% {
+    transform: translateX(-50vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveFromRight {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50vw);
+  }
+}
