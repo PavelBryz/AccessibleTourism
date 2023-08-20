@@ -15,14 +15,45 @@ def index(request: WSGIRequest):
 
 
 def suggestions(request: WSGIRequest):
-    query = Place.objects.all()
+    query = Place.objects.values('id',
+                                 'name',
+                                 'description',
+                                 'public_toilet',
+                                 'accessible_by_walking_stick',
+                                 'accessible_by_wheel_chair',
+                                 'priority_parking',
+                                 'visual_impdairment_facilities',
+                                 'rating__rating',
+                                 'favorites__favorite')
     context = {"places": query}
     return render(request, 'main_page/suggestions.html', context=context)
 
 
 def favorites(request: WSGIRequest):
-    return render(request, 'main_page/favorites.html')
+    query = Place.objects.values('id',
+                                 'name',
+                                 'description',
+                                 'public_toilet',
+                                 'accessible_by_walking_stick',
+                                 'accessible_by_wheel_chair',
+                                 'priority_parking',
+                                 'visual_impdairment_facilities',
+                                 'rating__rating',
+                                 'favorites__favorite',
+                                 'favorites__user__id',).filter(favorites__user__id=request.user.id, favorites__favorite=True)
+    context = {"places": query}
+    return render(request, 'main_page/suggestions.html', context=context)
 
 
 def item(request: WSGIRequest, pk):
-    return render(request, 'main_page/item.html')
+    query = Place.objects.values('id',
+                                 'name',
+                                 'description',
+                                 'public_toilet',
+                                 'accessible_by_walking_stick',
+                                 'accessible_by_wheel_chair',
+                                 'priority_parking',
+                                 'visual_impdairment_facilities',
+                                 'rating__rating',
+                                 'favorites__favorite').get(id=pk)
+    return render(request, 'main_page/item.html', context={'place': query})

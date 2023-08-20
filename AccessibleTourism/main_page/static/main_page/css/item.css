@@ -16,8 +16,8 @@ img {
 .div4 { grid-area: 1 / 4 / 3 / 5; }
 
 .name, .desc, .div1, .div2, .div4{
-    justify-content: center;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 .desc{

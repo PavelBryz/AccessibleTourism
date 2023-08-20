@@ -55,7 +55,7 @@
     --correct-background-shadow-color: color-mix(in srgb, var(--xanthous) 50%, transparent);
 
     --alert-info-border-color: var(--vista-blue);
-    --alert-success-border-color: var(--mindaro);
+    --alert-success-border-color: var(--avocado);
 
     --btn-focus-border-color: var(--vista-blue);
 
@@ -63,10 +63,16 @@
     --info-color: var(--vista-blue);
     --info-text-color: var(--pale-blue);
 
-    --fs: 1rem;
+    --fs: 1;
 }
-* {
-    font-size: var(--fs);
+p{
+    font-size: calc(1rem * var(--fs));
+}
+h2{
+    font-size: calc(1.3rem * var(--fs));
+}
+h3{
+    font-size: calc(1.2rem * var(--fs));
 }
 html {
     color: var(--text-color);

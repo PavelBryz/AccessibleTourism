@@ -16,47 +16,93 @@
 
 {% block context %}
 <main>
-    <table>
-        <tr>
-            <th>Picture</th>
-            <th>Place</th>
-            <th>Accessibility</th>
-            <th>Icons</th>
-        </tr>
-        {% for place in places %}
-            <tr>
-                <td><a href="{% url 'item' 1 %}"></a>pic</td>
-                <td><div class="placeholder">{{ place.name }}</div></td>
-                <td><div class="placeholder">{{ place.description }}</div></td>
-                <td class="icons-holder">
-                    {% if place.public_toilet %}
-                        <img src="{% static 'main_page/img/toilet.png' %}">
+    {% for place in places %}
+    <div class="item">
+        <div class="image"><a href="{% url 'item' place.id %}"><img src="{% static 'main_page/img/pic_img_' %}{{ place.id }}.jpg"></a></div>
+        <div class="name"><h2>{{ place.name }}</h2></div>
+        <div class="desc"><p>{{ place.description }}</p></div>
+        <div class="icons">
+            {% if place.public_toilet %}
+                <img src="{% static 'main_page/img/toilet.png' %}">
+            {% else %}
+                <img src="{% static 'main_page/img/no-toilet.png' %}">
+            {% endif %}
+            {% if place.accessible_by_walking_stick %}
+                <img src="{% static 'main_page/img/stick.svg' %}">
+            {% else %}
+                <img src="{% static 'main_page/img/no-stick.jpg' %}">
+            {% endif %}
+            {% if place.accessible_by_wheel_chair %}
+                <img src="{% static 'main_page/img/wheelchair.png' %}">
+            {% else %}
+                <img src="{% static 'main_page/img/no-wheelchair.png' %}">
+            {% endif %}
+            {% if place.priority_parking %}
+                <img src="{% static 'main_page/img/parking.png' %}">
+            {% else %}
+                <img src="{% static 'main_page/img/no-parking.png' %}">
+            {% endif %}
+            {% if place.visual_impdairment_facilities %}
+                <img src="{% static 'main_page/img/blind.png' %}">
+            {% else %}
+                <img src="{% static 'main_page/img/no-blind.png' %}">
+            {% endif %}
+        </div>
+        <div class="stars">
+            {% if not place.rating__rating or place.rating__rating == '0' %}
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+            {% else %}
+                {% if place.rating__rating == '1' %}
+                <img src="{% static 'main_page/img/star-filled.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                {% else %}
+                    {% if place.rating__rating == '2' %}
+                    <img src="{% static 'main_page/img/star-filled.svg' %}">
+                    <img src="{% static 'main_page/img/star-filled.svg' %}">
+                    <img src="{% static 'main_page/img/star.svg' %}">
+                    <img src="{% static 'main_page/img/star.svg' %}">
+                    <img src="{% static 'main_page/img/star.svg' %}">
                     {% else %}
-                        <img src="{% static 'main_page/img/no-toilet.png' %}">
+                        {% if place.rating__rating == '3' %}
+                        <img src="{% static 'main_page/img/star-filled.svg' %}">
+                        <img src="{% static 'main_page/img/star-filled.svg' %}">
+                        <img src="{% static 'main_page/img/star-filled.svg' %}">
+                        <img src="{% static 'main_page/img/star.svg' %}">
+                        <img src="{% static 'main_page/img/star.svg' %}">
+                        {% else %}
+                            {% if place.rating__rating == '4' %}
+                            <img src="{% static 'main_page/img/star-filled.svg' %}">
+                            <img src="{% static 'main_page/img/star-filled.svg' %}">
+                            <img src="{% static 'main_page/img/star-filled.svg' %}">
+                            <img src="{% static 'main_page/img/star-filled.svg' %}">
+                            <img src="{% static 'main_page/img/star.svg' %}">
+                            {% else %}
+                                <img src="{% static 'main_page/img/star-filled.svg' %}">
+                                <img src="{% static 'main_page/img/star-filled.svg' %}">
+                                <img src="{% static 'main_page/img/star-filled.svg' %}">
+                                <img src="{% static 'main_page/img/star-filled.svg' %}">
+                                <img src="{% static 'main_page/img/star-filled.svg' %}">
+                            {% endif %}
+                        {% endif %}
                     {% endif %}
-                    {% if place.accessible_by_walking_stick %}
-                        <img src="{% static 'main_page/img/stick.svg' %}">
-                    {% else %}
-                        <img src="{% static 'main_page/img/no-stick.jpg' %}">
-                    {% endif %}
-                    {% if place.accessible_by_wheel_chair %}
-                        <img src="{% static 'main_page/img/wheelchair.png' %}">
-                    {% else %}
-                        <img src="{% static 'main_page/img/no-wheelchair.png' %}">
-                    {% endif %}
-                    {% if place.priority_parking %}
-                        <img src="{% static 'main_page/img/parking.png' %}">
-                    {% else %}
-                        <img src="{% static 'main_page/img/no-parking.png' %}">
-                    {% endif %}
-                    {% if place.visual_impdairment_facilities %}
-                        <img src="{% static 'main_page/img/blind.png' %}">
-                    {% else %}
-                        <img src="{% static 'main_page/img/no-blind.png' %}">
-                    {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="likes">
+            {% if place.favorites__favorite %}
+                <img src="{% static 'main_page/img/like-filled.svg' %}">
+            {% else %}
+                <img src="{% static 'main_page/img/like.svg' %}">
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
 </main>
 {% endblock %}

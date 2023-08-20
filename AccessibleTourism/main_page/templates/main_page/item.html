@@ -6,7 +6,7 @@
 {% block css %}
   {{ block.super }}
   <link rel="stylesheet" href="{% static 'main_page/css/index.css' %}">
-  <link rel="stylesheet" href="{% static 'main_page/css/item.css' %}">
+  <link rel="stylesheet" href="{% static 'main_page/css/suggestions.css' %}">
 {% endblock %}
 
 {% block scripts %}
@@ -16,18 +16,92 @@
 
 {% block context %}
 <main>
-    <div class="parent">
-        <div class="div1"><img src="{% static 'main_page/img/ABG.jpg' %}"></div>
-        <div class="div2"><h2 class="name">Adelaide Botanic Garden</h2></div>
-        <div class="div3">
-            <p class="desc">
-            The Botanic Gardens of South Australia comprises three beautiful public gardens – Adelaide Botanic Garden (and Botanic Park) in the city of Adelaide, Mount Lofty Botanic Garden in the Adelaide Hills and Wittunga Botanic Garden in suburban Blackwood.
-            These Gardens have provided visitors with a range of cultural, recreational, educational and scientific facilities for over 160 years.
-            More than 2 million people visit these gardens each year including thousands of school students. We are champions, protectors and storytellers, building on our collections, sites, expertise and partnerships to understand and share how plants shape each others' futures.
-            Our vision is a community that is inspired to contribute to the sustainability of our living world, and understands the vital role of plants, fungi and algae in our ecosystems and to human life.
-            </p>
+    <div class="item">
+        <div class="image"><a href="{% url 'item' place.id %}"><img src="{% static 'main_page/img/pic_img_' %}{{ place.id }}.jpg"></a></div>
+        <div class="name"><h2>{{ place.name }}</h2></div>
+        <div class="desc"><p>{{ place.description }}</p></div>
+        <div class="icons">
+            {% if place.public_toilet %}
+                <img src="{% static 'main_page/img/toilet.png' %}">
+            {% else %}
+                <img src="{% static 'main_page/img/no-toilet.png' %}">
+            {% endif %}
+            {% if place.accessible_by_walking_stick %}
+                <img src="{% static 'main_page/img/stick.svg' %}">
+            {% else %}
+                <img src="{% static 'main_page/img/no-stick.jpg' %}">
+            {% endif %}
+            {% if place.accessible_by_wheel_chair %}
+                <img src="{% static 'main_page/img/wheelchair.png' %}">
+            {% else %}
+                <img src="{% static 'main_page/img/no-wheelchair.png' %}">
+            {% endif %}
+            {% if place.priority_parking %}
+                <img src="{% static 'main_page/img/parking.png' %}">
+            {% else %}
+                <img src="{% static 'main_page/img/no-parking.png' %}">
+            {% endif %}
+            {% if place.visual_impdairment_facilities %}
+                <img src="{% static 'main_page/img/blind.png' %}">
+            {% else %}
+                <img src="{% static 'main_page/img/no-blind.png' %}">
+            {% endif %}
         </div>
-        <div class="div4">
+        <div class="stars">
+            {% if not place.rating__rating or place.rating__rating == '0' %}
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+            {% else %}
+                {% if place.rating__rating == '1' %}
+                <img src="{% static 'main_page/img/star-filled.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                <img src="{% static 'main_page/img/star.svg' %}">
+                {% else %}
+                    {% if place.rating__rating == '2' %}
+                    <img src="{% static 'main_page/img/star-filled.svg' %}">
+                    <img src="{% static 'main_page/img/star-filled.svg' %}">
+                    <img src="{% static 'main_page/img/star.svg' %}">
+                    <img src="{% static 'main_page/img/star.svg' %}">
+                    <img src="{% static 'main_page/img/star.svg' %}">
+                    {% else %}
+                        {% if place.rating__rating == '3' %}
+                        <img src="{% static 'main_page/img/star-filled.svg' %}">
+                        <img src="{% static 'main_page/img/star-filled.svg' %}">
+                        <img src="{% static 'main_page/img/star-filled.svg' %}">
+                        <img src="{% static 'main_page/img/star.svg' %}">
+                        <img src="{% static 'main_page/img/star.svg' %}">
+                        {% else %}
+                            {% if place.rating__rating == '4' %}
+                            <img src="{% static 'main_page/img/star-filled.svg' %}">
+                            <img src="{% static 'main_page/img/star-filled.svg' %}">
+                            <img src="{% static 'main_page/img/star-filled.svg' %}">
+                            <img src="{% static 'main_page/img/star-filled.svg' %}">
+                            <img src="{% static 'main_page/img/star.svg' %}">
+                            {% else %}
+                                <img src="{% static 'main_page/img/star-filled.svg' %}">
+                                <img src="{% static 'main_page/img/star-filled.svg' %}">
+                                <img src="{% static 'main_page/img/star-filled.svg' %}">
+                                <img src="{% static 'main_page/img/star-filled.svg' %}">
+                                <img src="{% static 'main_page/img/star-filled.svg' %}">
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="likes">
+            {% if place.favorites__favorite %}
+                <img src="{% static 'main_page/img/like-filled.svg' %}">
+            {% else %}
+                <img src="{% static 'main_page/img/like.svg' %}">
+            {% endif %}
+        </div>
+        <div class="audio">
             <audio id = "idAudio">
                 <source src = "{% static 'main_page/audio/ABG.mp3' %}" type = "audio/ogg" >
                 <source src = "{% static 'main_page/audio/ABG.mp3' %}" type ="audio/mpeg">The browser is not supporting the audio element...
@@ -37,9 +111,5 @@
             <button id="stop" class="hidden btn" onclick="stopaudio()"><img src="{% static 'main_page/img/stop-circle-solid-svgrepo-com.svg' %}"></button>
         </div>
     </div>
-
-
-
-
 </main>
 {% endblock %}

@@ -10,7 +10,7 @@ nav.navigation-bar {
   height: 3rem;
   display: flex;
   align-items: center;
-  font-size: 1.25em;
+  font-size: calc(1.25rem * var(--fs));
   justify-content: space-between;
 }
 .navigation-bar-links ul{
@@ -87,5 +87,8 @@ nav > a.active{
 }
 
 .logo img{
-    width: 2.25rem;
+    width: 7rem;
+}
+.loop-img{
+    max-height: 2rem;
 }

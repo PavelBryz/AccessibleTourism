@@ -19,7 +19,7 @@
 .strikethrough {
   position: relative;
   display: inline-block;
-  font-size: 1em;
+  font-size: calc(1em * var(--fs));
 }
 .strikethrough::after {
   content: "";

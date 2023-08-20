@@ -13,7 +13,7 @@
 
 {% block header %}
 <nav class="navigation-bar">
-  <div class="logo"><a href="{% url 'main_page' %}"><img src = "{% static 'main_app/img/logo_black.svg' %}" alt="Logo"/></a></div>
+  <div class="logo"><a href="{% url 'main_page' %}"><img src = "{% static 'main_page/img/logo-name.png' %}" alt="Logo"/></a></div>
   <div class="navigation-bar-links flex-center">
     <ul>
       {% if user.is_authenticated %}
@@ -29,7 +29,7 @@
   </div>
   <div class="navigation-bar-links">
     <ul>
-        <li><a class="options" onclick="toggleSize()"><img src="{% static 'main_page/img/eye.png' %}"></a></li>
+        <li><a class="options" onclick="toggleSize()"><img class="loop-img" src="{% static 'main_page/img/loop.svg' %}"></a></li>
       {% if user.is_authenticated %}
         <li><a class="options" href="{% url 'signout' %}">Sign out</a></li>
       {% else %}
