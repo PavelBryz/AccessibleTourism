@@ -49,35 +49,35 @@
             {% endif %}
         </div>
         <div class="stars">
-            {% if not place.rating__rating or place.rating__rating == '0' %}
+            {% if not place.rating__rating or place.rating__rating == 0 %}
                 <img src="{% static 'main_page/img/star.svg' %}">
                 <img src="{% static 'main_page/img/star.svg' %}">
                 <img src="{% static 'main_page/img/star.svg' %}">
                 <img src="{% static 'main_page/img/star.svg' %}">
                 <img src="{% static 'main_page/img/star.svg' %}">
             {% else %}
-                {% if place.rating__rating == '1' %}
+                {% if place.rating__rating == 1 %}
                 <img src="{% static 'main_page/img/star-filled.svg' %}">
                 <img src="{% static 'main_page/img/star.svg' %}">
                 <img src="{% static 'main_page/img/star.svg' %}">
                 <img src="{% static 'main_page/img/star.svg' %}">
                 <img src="{% static 'main_page/img/star.svg' %}">
                 {% else %}
-                    {% if place.rating__rating == '2' %}
+                    {% if place.rating__rating == 2 %}
                     <img src="{% static 'main_page/img/star-filled.svg' %}">
                     <img src="{% static 'main_page/img/star-filled.svg' %}">
                     <img src="{% static 'main_page/img/star.svg' %}">
                     <img src="{% static 'main_page/img/star.svg' %}">
                     <img src="{% static 'main_page/img/star.svg' %}">
                     {% else %}
-                        {% if place.rating__rating == '3' %}
+                        {% if place.rating__rating == 3 %}
                         <img src="{% static 'main_page/img/star-filled.svg' %}">
                         <img src="{% static 'main_page/img/star-filled.svg' %}">
                         <img src="{% static 'main_page/img/star-filled.svg' %}">
                         <img src="{% static 'main_page/img/star.svg' %}">
                         <img src="{% static 'main_page/img/star.svg' %}">
                         {% else %}
-                            {% if place.rating__rating == '4' %}
+                            {% if place.rating__rating == 4 %}
                             <img src="{% static 'main_page/img/star-filled.svg' %}">
                             <img src="{% static 'main_page/img/star-filled.svg' %}">
                             <img src="{% static 'main_page/img/star-filled.svg' %}">
