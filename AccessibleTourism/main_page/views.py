@@ -1,10 +1,8 @@
-import os
 
 from django.shortcuts import render
 from django.core.handlers.wsgi import WSGIRequest
 from .models import Place
 
-import pyttsx3
 # Create your views here.
 
 
