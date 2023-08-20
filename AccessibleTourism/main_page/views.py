@@ -4,7 +4,6 @@ from django.shortcuts import render
 from django.core.handlers.wsgi import WSGIRequest
 from .models import Place
 
-from dotenv import load_dotenv
 import pyttsx3
 # Create your views here.
 
